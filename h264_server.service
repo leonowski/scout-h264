@@ -1,0 +1,11 @@
+[Unit]
+Description=h264 service
+After=multi-user.target
+[Service]
+Type=simple
+Restart=always
+ExecStart=/bin/bash -c '\
+   source /opt/ros/melodic/setup.bash; \
+   exec /usr/bin/python /userdata/python/h264_server.py'
+[Install]
+WantedBy=multi-user.target
